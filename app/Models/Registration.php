@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Registration extends Model
 {
     use HasFactory;
+
+    public $incrementing = false;
 }
