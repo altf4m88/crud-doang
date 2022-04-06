@@ -52,7 +52,7 @@ class RegistrationController extends Controller
     public function print($id) {
         $registration = Registration::findOrFail($id);
 
-        $createdDate = Carbon::createFromDate($registration->created_at)->locale('id_ID')->tz('Asia/Jakarta');
+        $createdDate = Carbon::createFromDate($registration->created_at)->locale('fr_FR')->tz('Asia/Jakarta');
 
         $createdAt = $createdDate->hour.':'. $createdDate->minute .' '.$createdDate->day.' '.$createdDate->monthName.' '.$createdDate->year;
 
@@ -73,7 +73,7 @@ class RegistrationController extends Controller
         $reports = collect($reports->paginate(10));
 
         $reports['data'] = collect($reports['data'])->map(function ($item, $key) {
-            $createdDate = Carbon::createFromDate($item['created_at'])->locale('id_ID')->tz('Asia/Jakarta');
+            $createdDate = Carbon::createFromDate($item['created_at'])->locale('fr_FR')->tz('Asia/Jakarta');
 
             $item['created_at'] = $createdDate->day.' '.$createdDate->monthName.' '.$createdDate->year;
 
